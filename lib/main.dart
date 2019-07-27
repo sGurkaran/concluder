@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'backGround.dart';
-import 'topPanel.dart';
+import 'components/topPanel.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,14 +22,25 @@ class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-          children: <Widget>[
-            BackGradient(),
-            TopPanel(),
-          ]
-        ),
-      );
+      body: MainView(),
+      backgroundColor: Color(0xFF091839),
+    );
   }
 }
 
-
+class MainView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Column(
+        children: <Widget>[
+          FractionallySizedBox(
+            child: TopPanel(),
+            widthFactor: 0.85,
+          ),
+        ],
+      ),
+    );
+  }
+}
