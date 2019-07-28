@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:concluder/personInformation.dart';
 
 class TopPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 140,
-      decoration: BoxDecoration(
-        color: Color(0xFF888A94),
-        borderRadius:
-            BorderRadiusDirectional.vertical(bottom: Radius.circular(32.0)),
-      ),
-      child: Row(
-        children: <Widget>[CircleImage(), NameAndPosition()],
+    return GestureDetector(
+      onVerticalDragDown: (InformView){
+        Navigator.push(context, MaterialPageRoute(builder: (context){return InformPage();
+        }),);
+      },
+      child: Container(
+        height: 140,
+        decoration: BoxDecoration(
+          color: Color(0xFF888A94),
+          borderRadius:
+              BorderRadiusDirectional.vertical(bottom: Radius.circular(32.0)),
+        ),
+        child: Row(
+          children: <Widget>[CircleImage(), NameAndPosition()],
+        ),
       ),
     );
   }
